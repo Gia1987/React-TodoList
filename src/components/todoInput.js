@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import './todoInput.css';
 
 export default class TodoInput extends React.Component{
   constructor(props){
@@ -13,10 +14,13 @@ export default class TodoInput extends React.Component{
   }
 
   handleChange(e){
-    console.log('change here');
+    this.setState({value: e.target.value});
   }
   addTodo(todo){
-    console.log("TODO: ", todo);
+    if (todo.length > 0 ){
+      this.props.addTodo(todo);
+      this.this.setState({value: ''});
+    }
   }
   render(){
     return(
