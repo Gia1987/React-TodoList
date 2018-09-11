@@ -6,7 +6,7 @@ export default class TodoInput extends React.Component{
     super(props)
 
     this.state = {
-      value: 'test'
+      value: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -19,13 +19,13 @@ export default class TodoInput extends React.Component{
   addTodo(todo){
     if (todo.length > 0 ){
       this.props.addTodo(todo);
-      this.this.setState({value: ''});
+      this.setState({value: ''});
     }
   }
   render(){
     return(
       <div>
-        <input type='text' value='' onChange={this.handleChange}/>
+        <input type='text' value={this.state.value} onChange={this.handleChange}/>
         <button className='btn btn-primary' onClick={() => this.addTodo(this.state.value)}>Submit</button>
       </div>
     )
